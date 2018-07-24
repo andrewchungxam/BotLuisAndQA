@@ -19,7 +19,6 @@ namespace LuisAndQandA1.Dialogs
              *  to process that message. */
             //context.Wait(this.MessageReceivedAsync);
             await this.SendWelcomeMessageAsync(context);
-
         }
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)

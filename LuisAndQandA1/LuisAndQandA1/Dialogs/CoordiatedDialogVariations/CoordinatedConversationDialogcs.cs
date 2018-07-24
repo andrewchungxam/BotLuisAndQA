@@ -24,10 +24,30 @@ namespace LuisAndQandA1.Dialogs
 
         public async Task StartAsync(IDialogContext context)
         {
+            await context.PostAsync("Hello - can I help you today?");
             context.Wait(this.MessageReceivedAsync);
+            //this.NoMessageNeededAsync(context);
         }
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
+        {
+            PromptDialog.Choice(
+                context,
+                this.AfterChoiceSelected,
+                new[] {
+                    EnterUserInfo,
+                    HRLinks,
+                    TaxHelp,
+                    RoyaltyInfo,
+                    ResetPasswordOption
+                    //ChangePasswordOption, ResetPasswordOption
+                },
+                "Welcome - what do you want to do today?",
+                "I am sorry but I didn't understand that. I need you to select one of the options below",
+                attempts: 2);
+        }
+
+        private async Task NoMessageNeededAsync(IDialogContext context)
         {
             PromptDialog.Choice(
                 context,

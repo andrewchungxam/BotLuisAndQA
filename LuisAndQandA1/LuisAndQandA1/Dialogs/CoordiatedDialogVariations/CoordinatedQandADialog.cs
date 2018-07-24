@@ -24,6 +24,9 @@ namespace LuisAndQandA1.Dialogs
 
         public Task StartAsync(IDialogContext context)
         {
+            string TopicOfQandAMaker = "your taxes";
+            context.PostAsync(String.Format("Welcome - what question did you have about {0}?", TopicOfQandAMaker));
+
             context.Wait(MessageReceivedASync);
             return Task.CompletedTask;
         }

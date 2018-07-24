@@ -69,5 +69,20 @@ namespace LuisAndQandA1.Dialogs
             await context.PostAsync($"You have reached {result.Intents[0].Intent}. You said: {result.Query}");
             context.Wait(MessageReceived);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -11,7 +11,11 @@ namespace LuisAndQandA1.Dialogs
     {
         public async Task StartAsync(IDialogContext context)
         {
-            context.Wait(this.MessageReceivedAsync);
+            //OPTION 1 - WAITS FOR A MESSAGE
+            //context.Wait(this.MessageReceivedAsync);
+
+            //OPTION 2 - GOES DIRECTLY INTO SHOWING A MESSAGE
+            await this.NoMessageNeededAsync(context);
         }
 
         public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
@@ -29,6 +33,24 @@ namespace LuisAndQandA1.Dialogs
             System.Threading.Thread.Sleep(1000);
             context.Done(true);
         }
+
+        public virtual async Task NoMessageNeededAsync(IDialogContext context)
+        {
+            var reply = context.MakeMessage();
+
+            reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+            reply.Attachments = GetCardsAttachments();
+
+            await context.PostAsync(reply);
+
+            //context.Wait(this.MessageReceivedAsync);
+
+            //WAIT FOR 1 SECOND
+            System.Threading.Thread.Sleep(1000);
+            context.Done(true);
+        }
+
+
 
         private static IList<Attachment> GetCardsAttachments()
         {
