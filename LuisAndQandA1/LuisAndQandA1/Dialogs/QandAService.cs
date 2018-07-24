@@ -123,38 +123,7 @@ namespace LuisAndQandA1.Dialogs
     }
 }
 
-//namespace LuisAndQandA1.Dialogs
-//{
-//    public class QandAService
-//    {
-//    }
-//}
-
-//public Task StartAsync(IDialogContext context)
-//{
-//    context.Wait(MessageReceivedAsync);
-
-//    return Task.CompletedTask;
-//}
-
-//private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
-//{
-//    var activity = await result as IMessageActivity;
-
-//    // TODO: Put logic for handling user message here
-
-//    context.Wait(MessageReceivedAsync);
-//}
 
 
 
-//async Task<HttpResponseMessage> RetrieveResponseMessage(HttpResponseMessage hrm)
-//{
-//    // GetAsync returns a Task<HttpResponseMessage>.   
-//    HttpResponseMessage response = await client.GetAsync(url, ct);
 
-//    // Retrieve the website contents from the HttpResponseMessage.  
-//    byte[] urlContents = await response.Content.ReadAsByteArrayAsync();
-
-//    return urlContents.Length;
-//}
