@@ -114,10 +114,18 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\BasicLuisDialog.cs" />
+    <Compile Include="Dialogs\CarouselCardsDialog.cs" />
+    <Compile Include="Dialogs\PromptDate.cs" />
+    <Compile Include="Dialogs\PromptStringRegex.cs" />
     <Compile Include="Dialogs\QandADialog.cs" />
     <Compile Include="Dialogs\QandADialog2.cs" />
     <Compile Include="Dialogs\QandAService.cs" />
-    <Compile Include="Dialogs\RootDialog.cs" />
+    <Compile Include="Dialogs\ResetPasswordDialog.cs" />
+    <Compile Include="Dialogs\SimpleDialog.cs" />
+    <Compile Include="Dialogs\RootEchoDialog.cs" />
+    <Compile Include="Dialogs\SimpleAgeDialog.cs" />
+    <Compile Include="Dialogs\SimpleNameDialog.cs" />
+    <Compile Include="Dialogs\SimplePasswordResetDialog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

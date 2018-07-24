@@ -18,13 +18,13 @@ namespace LuisAndQandA1
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                //await Conversation.SendAsync(activity, () => new Dialogs.RootDialog());
-
+                //await Conversation.SendAsync(activity, () => new Dialogs.RootEchoDialog());
                 //await Conversation.SendAsync(activity, () => new Dialogs.QandADialog());
                 //await Conversation.SendAsync(activity, () => new Dialogs.QandADialog2());
-                await Conversation.SendAsync(activity, () => new Dialogs.BasicLuisDialog());
-
-
+                //await Conversation.SendAsync(activity, () => new Dialogs.BasicLuisDialog());
+                //await Conversation.SendAsync(activity, () => new Dialogs.SimpleDialog());
+                //await Conversation.SendAsync(activity, () => new Dialogs.SimplePasswordResetDialog());
+                await Conversation.SendAsync(activity, () => new Dialogs.CarouselCardsDialog());
             }
             else
             {

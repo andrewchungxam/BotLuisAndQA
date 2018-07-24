@@ -6,7 +6,7 @@ using Microsoft.Bot.Connector;
 namespace LuisAndQandA1.Dialogs
 {
     [Serializable]
-    public class RootDialog : IDialog<object>
+    public class RootEchoDialog : IDialog<object>
     {
         public Task StartAsync(IDialogContext context)
         {
