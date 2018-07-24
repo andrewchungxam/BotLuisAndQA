@@ -9,7 +9,7 @@ namespace LuisAndQandA1.Dialogs
 #pragma warning disable 1998
 
     [Serializable]
-    public class SimplePasswordResetDialog : IDialog<object>
+    public class SimplePasswordResetRootDialog : IDialog<object>
     {
         private const string ChangePasswordOption = "Change Password";
         private const string ResetPasswordOption = "Reset Password";

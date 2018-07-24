@@ -35,10 +35,12 @@ namespace LuisAndQandA1.Dialogs
             if (string.IsNullOrEmpty(answer))
             {
                 await context.PostAsync("No good match found in KB.");
+                context.Done(false);
             }
             else
             {
                 await context.PostAsync(answer);
+                context.Done(true);
             }
         }
     }

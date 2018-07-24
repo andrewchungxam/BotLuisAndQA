@@ -22,9 +22,10 @@ namespace LuisAndQandA1
                 //await Conversation.SendAsync(activity, () => new Dialogs.QandADialog());
                 //await Conversation.SendAsync(activity, () => new Dialogs.QandADialog2());
                 //await Conversation.SendAsync(activity, () => new Dialogs.BasicLuisDialog());
-                //await Conversation.SendAsync(activity, () => new Dialogs.SimpleDialog());
+                //await Conversation.SendAsync(activity, () => new Dialogs.SimpleRootDialog());
                 //await Conversation.SendAsync(activity, () => new Dialogs.SimplePasswordResetDialog());
-                await Conversation.SendAsync(activity, () => new Dialogs.CarouselCardsDialog());
+                //await Conversation.SendAsync(activity, () => new Dialogs.CarouselCardsDialog());
+                await Conversation.SendAsync(activity, () => new Dialogs.CoordinatedConversationDialog());
             }
             else
             {

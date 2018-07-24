@@ -113,19 +113,27 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
-    <Compile Include="Dialogs\BasicLuisDialog.cs" />
-    <Compile Include="Dialogs\CarouselCardsDialog.cs" />
-    <Compile Include="Dialogs\PromptDate.cs" />
-    <Compile Include="Dialogs\PromptStringRegex.cs" />
-    <Compile Include="Dialogs\QandADialog.cs" />
-    <Compile Include="Dialogs\QandADialog2.cs" />
-    <Compile Include="Dialogs\QandAService.cs" />
-    <Compile Include="Dialogs\ResetPasswordDialog.cs" />
-    <Compile Include="Dialogs\SimpleDialog.cs" />
-    <Compile Include="Dialogs\RootEchoDialog.cs" />
-    <Compile Include="Dialogs\SimpleAgeDialog.cs" />
-    <Compile Include="Dialogs\SimpleNameDialog.cs" />
-    <Compile Include="Dialogs\SimplePasswordResetDialog.cs" />
+    <Compile Include="Dialogs\CoordinatedAgeDialog.cs" />
+    <Compile Include="Dialogs\CoordinatedHRLinksDialog.cs" />
+    <Compile Include="Dialogs\CoordinatedNameAgeRootDialog.cs" />
+    <Compile Include="Dialogs\CoordinatedNameDialog.cs" />
+    <Compile Include="Dialogs\CoordinatedQandADialog.cs" />
+    <Compile Include="Dialogs\CoordinatedQandADialog2.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\BasicLuisDialog.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\CarouselCardsDialog.cs" />
+    <Compile Include="Dialogs\CoordinatedConversationDialogcs.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\PromptDate.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\PromptStringRegex.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\QandADialog.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\QandADialog2.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\QandAService.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\ResetPasswordDialog.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\SimpleRootDialog.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\RootEchoDialog.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\SimpleAgeDialog.cs" />
+    <Compile Include="Dialogs\Helpers\FutureSimpleLunchDialog.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\SimpleNameDialog.cs" />
+    <Compile Include="Dialogs\SingleDialogVariations\SimplePasswordResetRootDialog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,6 +149,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dialogs\CoordiatedDialogVariations\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,10 +8,11 @@ namespace LuisAndQandA1.Dialogs
 #pragma warning disable 1998
 
     [Serializable]
-        public class SimpleDialog : IDialog<object>
+        public class SimpleRootDialog : IDialog<object>
         {
             private string name;
             private int age;
+            private string lunch;
 
             public async Task StartAsync(IDialogContext context)
             {
@@ -31,7 +32,7 @@ namespace LuisAndQandA1.Dialogs
 
             private async Task SendWelcomeMessageAsync(IDialogContext context)
             {
-                await context.PostAsync("Hi, welcome to the Company Orientation Bot. Let's get started!");
+                await context.PostAsync("Hi, glad you're here!  Enter you user details!");
 
                 context.Call(new SimpleNameDialog(), this.NameDialogResumeAfter);
             }

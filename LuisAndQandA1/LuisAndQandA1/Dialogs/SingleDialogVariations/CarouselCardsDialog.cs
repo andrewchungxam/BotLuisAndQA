@@ -30,7 +30,6 @@ namespace LuisAndQandA1.Dialogs
         {
             return new List<Attachment>()
             {
-            
                 //GetThumbnailCard(
                 //    "Azure Storage",
                 //    "Offload the heavy lifting of data center management",
