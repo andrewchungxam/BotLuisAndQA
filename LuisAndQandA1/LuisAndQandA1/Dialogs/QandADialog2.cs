@@ -12,14 +12,14 @@ using Newtonsoft.Json;
 namespace LuisAndQandA1.Dialogs
 {
     [Serializable]
-    public class QandADialog : IDialog<object>
+    public class QandADialog2 : IDialog<object>
     {
         private QandAService _QnAService =
         new QandAService
             (
-                ConfigurationManager.AppSettings["QandAHost1"],
-                ConfigurationManager.AppSettings["QandAKnowledgebaseId1"],
-                ConfigurationManager.AppSettings["QandAEndPointKey1"]
+                ConfigurationManager.AppSettings["QandAHost2"],
+                ConfigurationManager.AppSettings["QandAKnowledgebaseId2"],
+                ConfigurationManager.AppSettings["QandAEndPointKey2"]
             );
 
         public Task StartAsync(IDialogContext context)

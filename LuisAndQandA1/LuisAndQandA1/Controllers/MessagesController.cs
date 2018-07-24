@@ -20,7 +20,11 @@ namespace LuisAndQandA1
             {
                 //await Conversation.SendAsync(activity, () => new Dialogs.RootDialog());
 
-                await Conversation.SendAsync(activity, () => new Dialogs.QandADialog());
+                //await Conversation.SendAsync(activity, () => new Dialogs.QandADialog());
+                //await Conversation.SendAsync(activity, () => new Dialogs.QandADialog2());
+                await Conversation.SendAsync(activity, () => new Dialogs.BasicLuisDialog());
+
+
             }
             else
             {

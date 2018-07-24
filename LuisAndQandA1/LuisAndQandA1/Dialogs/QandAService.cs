@@ -1,9 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -14,6 +9,7 @@ using Newtonsoft.Json;
 
 namespace LuisAndQandA1.Dialogs
 {
+    //HELPER CLASSES
     public class RootObject
     {
         public string question { get; set; }
@@ -24,6 +20,7 @@ namespace LuisAndQandA1.Dialogs
     public class Answer { public IList<string> Questions { get; set; } public string answer { get; set; } public double Score { get; set; } public int Id { get; set; } public string Source { get; set; } public IList<object> Keywords { get; set; } public IList<Metadata> Metadata { get; set; } }
 
     public class QnAAnswer { public IList<Answer> Answers { get; set; } }
+
 
     [Serializable]
     public class QandAService
@@ -47,27 +44,6 @@ namespace LuisAndQandA1.Dialogs
             {
             };
 
-
-            //METHOD 1
-            //string baseUrlString = String.Format("{0}/knowledgebases/{1}/generateAnswer", _qandaServiceHostName, _knowledgeBaseId);
-            //var baseURI = new Uri(baseUrlString);
-            //client.BaseAddress = baseURI;
-
-            //CREATE THE NECESSARY AUTH + HEADERS
-            //client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("authorization", "EndpointKey " + _endpointKey);
-            //client.DefaultRequestHeaders.Add("content-type", "application/json");
-            //          HttpRequestMessage myPostCreateAccessPolicyRequest = new HttpRequestMessage(HttpMethod.Post, String.Format("https://xamcammediaservice.restv2.westus.media.azure.net/api/AccessPolicies"));
-
-            //CREATE REQUEST MESSAGE
-            //var request = new HttpRequestMessage() { };
-            //request.Method = HttpMethod.Post;
-            //request.
-
-
-            //METHOD 2
-            //client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Authorization", "EndpointKey " + _endpointKey);
-            //client.DefaultRequestHeaders.Add("content-type", "application/json");
-
             string baseUrlString = String.Format("{0}/knowledgebases/{1}/generateAnswer", _qandaServiceHostName, _knowledgeBaseId);
             var request = new HttpRequestMessage(HttpMethod.Post, baseUrlString);
 
@@ -82,7 +58,6 @@ namespace LuisAndQandA1.Dialogs
             request.Content = new StringContent(serializedRequestQueryQandAObject, Encoding.UTF8, "application/json");
 
             request.Headers.Add("Authorization", "EndpointKey " + _endpointKey);
-            //request.Headers.Add("Content-Type", "application/json");
 
             //RETRIEVE RESPONSE MESSAGE FROM ABOVE RESPONSE
             var response = await client.SendAsync(request);
