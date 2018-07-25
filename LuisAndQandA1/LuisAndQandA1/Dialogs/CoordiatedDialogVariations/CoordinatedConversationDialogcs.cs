@@ -26,11 +26,11 @@ namespace LuisAndQandA1.Dialogs
         {
             //Option 1
             //System.Threading.Thread.Sleep(1000);
-            //await context.PostAsync("Welcome back - do you need help today?");
-            //context.Wait(this.MessageReceivedAsync);
+            await context.PostAsync("Welcome! Do you need help today?");
+            context.Wait(this.MessageReceivedAsync);
 
             //Option 2
-            this.NoMessageNeededAsync(context);
+            //this.NoMessageNeededAsync(context);
         }
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
@@ -53,7 +53,7 @@ namespace LuisAndQandA1.Dialogs
 
         private async Task NoMessageNeededAsync(IDialogContext context)
         {
-            System.Threading.Thread.Sleep(2500);
+            System.Threading.Thread.Sleep(2000);
             PromptDialog.Choice(
                 context,
                 this.AfterChoiceSelected,
@@ -87,7 +87,7 @@ namespace LuisAndQandA1.Dialogs
                 //ChangePasswordOption
 
                     case EnterUserInfo:
-                        context.Call(new CoordinatedNameAgeRootDialog(), this.AfterResetPassword);
+                        context.Call(new CoordinatedNameAgeRootDialog(), this.AfterEnterUserInfo);
                         //context.Forward(new CoordinatedNameAgeRootDialog(), this.AfterResetPassword, selection, CancellationToken.None);
                         break;
 
@@ -119,7 +119,9 @@ namespace LuisAndQandA1.Dialogs
             }
             catch (TooManyAttemptsException)
             {
-                await this.StartAsync(context);
+                //await this.StartAsync(context);
+                await this.NoMessageNeededAsync(context);
+
             }
         }
 
@@ -132,7 +134,9 @@ namespace LuisAndQandA1.Dialogs
                 await context.PostAsync("We didn't get your user info - if you'd like to try again, please select \"Enter user info\" from the menu.");
             }
 
-            await this.StartAsync(context);
+            //await this.StartAsync(context);
+            await this.NoMessageNeededAsync(context);
+
         }
 
         private async Task AfterHRLinks(IDialogContext context, IAwaitable<bool> result)
@@ -144,7 +148,9 @@ namespace LuisAndQandA1.Dialogs
                 await context.PostAsync("Sorry we couldn't help - if you'd like to try again, please select \"HR Links\" from the menu.");
             }
 
-            await this.StartAsync(context);
+            //await this.StartAsync(context);
+            await this.NoMessageNeededAsync(context);
+
         }
 
         private async Task AfterTaxHelp(IDialogContext context, IAwaitable<bool> result)
@@ -156,9 +162,11 @@ namespace LuisAndQandA1.Dialogs
                 await context.PostAsync("Sorry we couldn't help - if you'd like to try again, please select \"Tax help\" from the menu.");
             }
 
-            await this.StartAsync(context);
+            //await this.StartAsync(context);
+            await this.NoMessageNeededAsync(context);
+
         }
-        
+
         private async Task AfterRoyaltyInfo(IDialogContext context, IAwaitable<bool> result)
         {
             var success = await result;
@@ -168,7 +176,9 @@ namespace LuisAndQandA1.Dialogs
                 await context.PostAsync("Sorry we couldn't help - if you'd like to try again, please select \"Royalty info\" from the menu.");
             }
 
-            await this.StartAsync(context);
+            //await this.StartAsync(context);
+            await this.NoMessageNeededAsync(context);
+
         }
 
 
@@ -182,7 +192,9 @@ namespace LuisAndQandA1.Dialogs
                 await context.PostAsync("Your identity was not verified and your password cannot be reset");
             }
 
-            await this.StartAsync(context);
+            //await this.StartAsync(context);
+            await this.NoMessageNeededAsync(context);
+
         }
 
 

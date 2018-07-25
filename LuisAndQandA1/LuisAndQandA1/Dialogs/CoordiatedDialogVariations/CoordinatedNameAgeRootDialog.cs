@@ -77,8 +77,8 @@ namespace LuisAndQandA1.Dialogs
                 // await this.SendWelcomeMessageAsync(context);
 
                 //OPTION 2 : BETTER CONVERSATION FLOW - NO RE-PROMPT NOR REPEATING WELCOME MESSAGE
-                await Task.CompletedTask;
-                context.Done(false);
+                //await Task.CompletedTask;
+                //context.Done(false);
             }
         }
     }
