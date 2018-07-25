@@ -14,7 +14,7 @@ namespace LuisAndQandA1.Dialogs
     [Serializable]
     public class QandADialog2 : IDialog<object>
     {
-        private QandAService _QnAService =
+        private QandAService _QnAServiceS2 =
         new QandAService
             (
                 ConfigurationManager.AppSettings["QandAHost2"],
@@ -31,10 +31,20 @@ namespace LuisAndQandA1.Dialogs
         public async Task MessageReceivedASync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             string safeText = HttpUtility.UrlEncode(((IMessageActivity)context.Activity).Text);
-            string answer = await _QnAService.GetAnswer(safeText);
+            string answer = await _QnAServiceS2.GetAnswer(safeText);
             if (string.IsNullOrEmpty(answer))
             {
-                await context.PostAsync("No good match found in KB.");
+                string regularText = ((IMessageActivity)context.Activity).Text;
+                string regularAnswer = await _QnAServiceS2.GetAnswer(regularText);
+
+                if (string.IsNullOrEmpty(regularAnswer))
+                {
+                    await context.PostAsync("No good match found in KB.");
+                }
+                else
+                {
+                    await context.PostAsync(regularAnswer);
+                }
             }
             else
             {

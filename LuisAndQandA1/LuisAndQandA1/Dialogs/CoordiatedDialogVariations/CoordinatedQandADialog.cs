@@ -14,7 +14,7 @@ namespace LuisAndQandA1.Dialogs
     [Serializable]
     public class CoordinatedQandADialog : IDialog<bool> //IDialog<object>
     {
-        private QandAService _QnAService =
+        private QandAService _QnAServiceC1 =
         new QandAService
             (
                 ConfigurationManager.AppSettings["QandAHost1"],
@@ -34,15 +34,27 @@ namespace LuisAndQandA1.Dialogs
         public async Task MessageReceivedASync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             string safeText = HttpUtility.UrlEncode(((IMessageActivity)context.Activity).Text);
-            string answer = await _QnAService.GetAnswer(safeText);
+            string answer = await _QnAServiceC1.GetAnswer(safeText);
             if (string.IsNullOrEmpty(answer))
             {
-                await context.PostAsync("No good match found in KB.");
-                context.Done(false);
+                string regularText = ((IMessageActivity)context.Activity).Text;
+                string regularAnswer = await _QnAServiceC1.GetAnswer(regularText);
+
+                if (string.IsNullOrEmpty(regularAnswer))
+                {
+                    await context.PostAsync("No good match found in KB.");
+                    context.Done(false);
+                }
+                else
+                {
+                    await context.PostAsync(regularAnswer);
+                    context.Done(true);
+                }
             }
             else
             {
                 await context.PostAsync(answer);
+
                 context.Done(true);
             }
         }

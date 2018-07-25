@@ -115,6 +115,7 @@
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\CoordiatedDialogVariations\CoordinatedAgeDialog.cs" />
     <Compile Include="Dialogs\CoordiatedDialogVariations\CoordinatedHRLinksDialog.cs" />
+    <Compile Include="Dialogs\CoordiatedDialogVariations\CoordinatedLuisDialog.cs" />
     <Compile Include="Dialogs\CoordiatedDialogVariations\CoordinatedNameAgeRootDialog.cs" />
     <Compile Include="Dialogs\CoordiatedDialogVariations\CoordinatedNameDialog.cs" />
     <Compile Include="Dialogs\CoordiatedDialogVariations\CoordinatedQandADialog.cs" />

@@ -12,7 +12,7 @@ namespace LuisAndQandA1.Dialogs
     [Serializable]
     public class CoordinatedConversationDialog : IDialog<object>
     {
-        private const string EnterUserInfo = "Enter user info";
+        private const string EnterUserInfo = "Enter new employee info";
         private const string HRLinks = "HR Links";
         private const string TaxHelp = "Tax help";
         private const string RoyaltyInfo = "Royalty info";
@@ -24,9 +24,13 @@ namespace LuisAndQandA1.Dialogs
 
         public async Task StartAsync(IDialogContext context)
         {
-            await context.PostAsync("Hello - can I help you today?");
-            context.Wait(this.MessageReceivedAsync);
-            //this.NoMessageNeededAsync(context);
+            //Option 1
+            //System.Threading.Thread.Sleep(1000);
+            //await context.PostAsync("Welcome back - do you need help today?");
+            //context.Wait(this.MessageReceivedAsync);
+
+            //Option 2
+            this.NoMessageNeededAsync(context);
         }
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
@@ -49,6 +53,7 @@ namespace LuisAndQandA1.Dialogs
 
         private async Task NoMessageNeededAsync(IDialogContext context)
         {
+            System.Threading.Thread.Sleep(2500);
             PromptDialog.Choice(
                 context,
                 this.AfterChoiceSelected,

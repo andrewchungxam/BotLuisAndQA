@@ -25,7 +25,9 @@ namespace LuisAndQandA1
                 //await Conversation.SendAsync(activity, () => new Dialogs.SimpleRootDialog());
                 //await Conversation.SendAsync(activity, () => new Dialogs.SimplePasswordResetDialog());
                 //await Conversation.SendAsync(activity, () => new Dialogs.CarouselCardsDialog());
-                await Conversation.SendAsync(activity, () => new Dialogs.CoordinatedConversationDialog());
+                //await Conversation.SendAsync(activity, () => new Dialogs.CoordinatedConversationDialog());
+                await Conversation.SendAsync(activity, () => new Dialogs.CoordinatedLuisDialog());
+
             }
             else
             {
